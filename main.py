@@ -21,7 +21,7 @@ class Food:
 def next_turn():
     pass
 
-def change_direction(new direction):
+def change_direction():
     pass
 
 def check_collisions():
@@ -29,3 +29,11 @@ def check_collisions():
 
 def game_over():
     pass
+
+
+window = Tk()
+
+window.title("SNAKE GAME")
+window.resizable(False, False)
+
+window.mainloop()
