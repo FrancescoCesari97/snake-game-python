@@ -5,7 +5,7 @@ import random
 GAME_WIDTH = 750
 GAME_HEIGHT = 750
 SPEED = 50
-SPACE_SIZE = 50
+SPACE_SIZE = 25
 BODY_PARTS = 3
 SNAKE_COLOR = "#00FF00"
 FOOD_COLOR = "#FF0000"
@@ -119,8 +119,30 @@ def check_collisions(snake):
     return False
 
 def game_over():
-    
-    canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2, font=('consolas', 55), text="GAME OVER", fill="red", tag="game over")
+
+    canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2 -60, font=('consolas', 75), text="GAME OVER", fill="red", tag="game over")
+    canvas.create_text(canvas.winfo_width() / 2, canvas.winfo_height() / 2 + 80, font=('consolas', 55), text="  Press Enter\n to Play Again", fill="#7FFF00", tag="play again")
+    window.bind('<Return>', lambda event: restart_game())
+
+
+def restart_game():
+    global score, direction, snake, food
+
+    canvas.delete(ALL)
+
+
+
+    score = 0
+    direction = 'down'
+
+    label.config(text="SCORE: {}".format(score))
+
+    snake = Snake()
+    food = Food()
+
+    next_turn(snake, food)
+
+
 
 
 window = Tk()
