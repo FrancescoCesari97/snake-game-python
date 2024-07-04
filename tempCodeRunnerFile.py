@@ -1,1 +1,2 @@
 
+            direction = new_direction
